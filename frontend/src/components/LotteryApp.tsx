@@ -41,14 +41,13 @@ export function LotteryApp() {
     () =>
       createPublicClient({
         chain: sepolia,
-        transport: http('https://rpc.sepolia.org'),
+        transport: http('https://eth-sepolia.public.blastapi.io'),
       }),
     [],
   );
 
   const [tokenStates, setTokenStates] = useState<TokenState[]>([]);
   const [loadingTokens, setLoadingTokens] = useState(false);
-  const [loadError, setLoadError] = useState<string | null>(null);
   const [drawHistory, setDrawHistory] = useState<DrawRecord[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
   const [balanceVersion, setBalanceVersion] = useState(0);
@@ -69,7 +68,6 @@ export function LotteryApp() {
 
   const loadTokens = useCallback(async () => {
     setLoadingTokens(true);
-    setLoadError(null);
 
     try {
       if (LOTTERY_CONTRACT.address === ZERO_ADDRESS) {
@@ -125,7 +123,7 @@ export function LotteryApp() {
       setBalanceVersion((version: number) => version + 1);
     } catch (error) {
       console.error('Failed to load tokens', error);
-      setLoadError(error instanceof Error ? error.message : 'Failed to load lottery configuration');
+      // Silently use fallback tokens on error
       setTokenStates((previous: TokenState[]) => (previous.length > 0 ? previous : fallbackStates));
     } finally {
       setLoadingTokens(false);
@@ -428,7 +426,6 @@ export function LotteryApp() {
               {isDrawing ? 'Drawing…' : 'Run Lottery Draw'}
             </button>
             {!address && <span className="lottery-warning">Connect your wallet to start drawing prizes.</span>}
-            {loadError && <span className="lottery-warning">{loadError}</span>}
             {zamaLoading && <span className="lottery-status">Loading…</span>}
             {loadingTokens && <span className="lottery-status">Loading deployed contracts…</span>}
           </div>
