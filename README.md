@@ -226,13 +226,22 @@ luckyvault/
 
 ---
 
-## Network
+## Deployed Contracts (Sepolia)
 
-| Property | Value |
-|----------|-------|
-| Network | Sepolia Testnet |
-| Chain ID | 11155111 |
-| Lottery Contract | `0x...` (after deployment) |
+| Contract | Address |
+|----------|---------|
+| **TokenLottery** | [`0xcDB2a4e04Df580c6e5B2a19Fdff12C89F14F4b1B`](https://sepolia.etherscan.io/address/0xcDB2a4e04Df580c6e5B2a19Fdff12C89F14F4b1B) |
+| **ERC7984USDT** | [`0xBF7BDBcd4fdad99154F736fA7D662acE31Bf7535`](https://sepolia.etherscan.io/address/0xBF7BDBcd4fdad99154F736fA7D662acE31Bf7535) |
+| **ERC7984USDC** | [`0xa3C2F50C17CdC0CCBD74F765aE6DA66241826187`](https://sepolia.etherscan.io/address/0xa3C2F50C17CdC0CCBD74F765aE6DA66241826187) |
+| **ERC7984DAI** | [`0x29Eb9e4a83C98E7b27EdDf8379e48647fA50aABc`](https://sepolia.etherscan.io/address/0x29Eb9e4a83C98E7b27EdDf8379e48647fA50aABc) |
+| **ERC7984WBTC** | [`0x3509C2fB761fC690C6E4C8D1514959d16c5e6DB8`](https://sepolia.etherscan.io/address/0x3509C2fB761fC690C6E4C8D1514959d16c5e6DB8) |
+| **ERC7984LINK** | [`0x8468919A1BE8088b702346721A313ce50c292bc8`](https://sepolia.etherscan.io/address/0x8468919A1BE8088b702346721A313ce50c292bc8) |
+
+| Network | Chain ID |
+|---------|----------|
+| Sepolia Testnet | 11155111 |
+
+**Live Demo:** [https://lucky-money-fhe.vercel.app](https://lucky-money-fhe.vercel.app)
 
 ---
 
