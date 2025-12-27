@@ -35,7 +35,7 @@ const ZERO_CIPHERTEXT = '0x00000000000000000000000000000000000000000000000000000
 export function LotteryApp() {
   const { address } = useAccount();
   const signerPromise = useEthersSigner();
-  const { instance, isLoading: zamaLoading, error: zamaError } = useZamaInstance();
+  const { instance, isLoading: zamaLoading } = useZamaInstance();
 
   const publicClient = useMemo(
     () =>
@@ -429,8 +429,7 @@ export function LotteryApp() {
             </button>
             {!address && <span className="lottery-warning">Connect your wallet to start drawing prizes.</span>}
             {loadError && <span className="lottery-warning">{loadError}</span>}
-            {zamaError && <span className="lottery-info">{zamaError}</span>}
-            {zamaLoading && <span className="lottery-status">Connecting to FHE network…</span>}
+            {zamaLoading && <span className="lottery-status">Loading…</span>}
             {loadingTokens && <span className="lottery-status">Loading deployed contracts…</span>}
           </div>
         </section>

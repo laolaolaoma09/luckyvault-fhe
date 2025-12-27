@@ -47,20 +47,24 @@ export function TokenCard({
       <p className="token-address">{shortenAddress(address)}</p>
       <div className="token-balance">
         {!connected ? (
-          <p className="token-balance-placeholder">Connect your wallet to view balances.</p>
+          <p className="token-balance-placeholder">Connect wallet to view</p>
         ) : balanceLabel !== undefined ? (
           <p className="token-balance-value">{balanceLabel} tokens</p>
         ) : encryptedBalance ? (
-          <button
-            type="button"
-            className="token-decrypt-button"
-            onClick={onDecrypt}
-            disabled={decrypting || !canDecrypt}
-          >
-            {decrypting ? 'Decrypting…' : canDecrypt ? 'Decrypt Balance' : 'Initializing…'}
-          </button>
+          canDecrypt ? (
+            <button
+              type="button"
+              className="token-decrypt-button"
+              onClick={onDecrypt}
+              disabled={decrypting}
+            >
+              {decrypting ? 'Decrypting…' : 'Decrypt Balance'}
+            </button>
+          ) : (
+            <p className="token-balance-encrypted">Encrypted</p>
+          )
         ) : (
-          <p className="token-balance-placeholder">Complete a draw to receive encrypted rewards.</p>
+          <p className="token-balance-placeholder">Draw to receive rewards</p>
         )}
       </div>
     </div>

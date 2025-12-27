@@ -163,6 +163,16 @@
   color: #6b7280;
 }
 
+.token-balance-encrypted {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
 .token-decrypt-button {
   align-self: flex-start;
   padding: 0.6rem 1.3rem;
