@@ -81,8 +81,8 @@ LuckyVault is a decentralized lottery application built on **Zama's fhEVM** tech
 
 ```bash
 # Clone repository
-git clone https://github.com/laolaolaoma09/randomential-fhe.git
-cd randomential-fhe
+git clone https://github.com/laolaolaoma09/luckyvault-fhe.git
+cd luckyvault-fhe
 
 # Install dependencies
 npm install
