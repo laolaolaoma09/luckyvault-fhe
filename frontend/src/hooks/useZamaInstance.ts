@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createInstance,initSDK,SepoliaConfig } from '@zama-fhe/relayer-sdk/bundle';
+import { createInstance, initSDK, SepoliaConfig } from '@zama-fhe/relayer-sdk/bundle';
 
 export function useZamaInstance() {
   const [instance, setInstance] = useState<any>(null);
@@ -13,17 +13,21 @@ export function useZamaInstance() {
       try {
         setIsLoading(true);
         setError(null);
-        await initSDK()
 
+        // Initialize the SDK first
+        await initSDK();
+
+        // Create instance with Sepolia config
         const zamaInstance = await createInstance(SepoliaConfig);
 
-        if (mounted) {
+        if (mounted && zamaInstance) {
           setInstance(zamaInstance);
         }
       } catch (err) {
         console.error('Failed to initialize Zama instance:', err);
         if (mounted) {
-          setError('Failed to initialize encryption service');
+          // Set error but don't block app - decryption will just be disabled
+          setError('Encryption service unavailable. Decryption disabled.');
         }
       } finally {
         if (mounted) {

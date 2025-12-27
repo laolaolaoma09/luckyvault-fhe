@@ -353,16 +353,34 @@ export function LotteryApp() {
       if (rewardLog) {
         const tokenAddress = rewardLog.args?.token as string;
         const amount = rewardLog.args?.amount as bigint;
-        const matchedToken = tokenStates.find(
+
+        // Try to match from tokenStates first, then fallback to TOKEN_CONTRACTS config
+        let matchedToken = tokenStates.find(
           (token) => token.address.toLowerCase() === tokenAddress.toLowerCase(),
         );
+
+        // Fallback to TOKEN_CONTRACTS if tokenStates doesn't have the match
+        if (!matchedToken) {
+          const configToken = TOKEN_CONTRACTS.find(
+            (token) => token.address.toLowerCase() === tokenAddress.toLowerCase(),
+          );
+          if (configToken) {
+            matchedToken = {
+              address: configToken.address,
+              title: configToken.title,
+              name: configToken.key,
+              symbol: configToken.key,
+              isDecrypting: false,
+            };
+          }
+        }
 
         setDrawHistory((prev: DrawRecord[]) => [
           {
             txHash: tx.hash,
             tokenAddress,
             amount: amount.toString(),
-            tokenTitle: matchedToken?.title ?? 'Unknown Token',
+            tokenTitle: matchedToken?.title ?? `Token ${tokenAddress.slice(0, 8)}...`,
             tokenSymbol: matchedToken?.symbol ?? matchedToken?.name ?? '',
             timestamp: new Date().toISOString(),
           },
