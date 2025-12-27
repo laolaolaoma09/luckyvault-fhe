@@ -73,6 +73,12 @@
   color: #dc2626;
 }
 
+.lottery-info {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
 .tokens-section {
   margin-top: 2.5rem;
 }

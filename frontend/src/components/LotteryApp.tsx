@@ -429,8 +429,8 @@ export function LotteryApp() {
             </button>
             {!address && <span className="lottery-warning">Connect your wallet to start drawing prizes.</span>}
             {loadError && <span className="lottery-warning">{loadError}</span>}
-            {zamaError && <span className="lottery-warning">{zamaError}</span>}
-            {zamaLoading && <span className="lottery-status">Initializing Zama SDK…</span>}
+            {zamaError && <span className="lottery-info">{zamaError}</span>}
+            {zamaLoading && <span className="lottery-status">Connecting to FHE network…</span>}
             {loadingTokens && <span className="lottery-status">Loading deployed contracts…</span>}
           </div>
         </section>
