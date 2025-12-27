@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createInstance, initSDK, type FhevmInstanceConfig } from '@zama-fhe/relayer-sdk/bundle';
 
-// Custom Sepolia config with correct relayer URL
+// Custom Sepolia config with correct relayer URL and network
 const SEPOLIA_CONFIG: FhevmInstanceConfig = {
   aclContractAddress: '0x687820221192C5B662b25367F70076A37bc79b6c',
   kmsContractAddress: '0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC',
@@ -10,7 +10,8 @@ const SEPOLIA_CONFIG: FhevmInstanceConfig = {
   verifyingContractAddressInputVerification: '0x7048C39f048125eDa9d678AEbaDfB22F7900a29F',
   chainId: 11155111,
   gatewayChainId: 55815,
-  relayerUrl: 'https://relayer.testnet.zama.org', // Correct URL (.org not .cloud)
+  relayerUrl: 'https://relayer.testnet.zama.org',
+  network: 'https://eth-sepolia.public.blastapi.io', // Sepolia RPC
 };
 
 const MAX_RETRIES = 3;
