@@ -723,7 +723,7 @@ export type LotteryContractConfig = {
 };
 
 export const LOTTERY_CONTRACT: LotteryContractConfig = {
-  address: '0x5855b4AcD8A16Bb70760d9811708af512574259D',
+  address: '0x345bfEBAA665c6abae5D78b677e545Eef28106ca',
   abi: TOKEN_LOTTERY_ABI,
 };
 
@@ -731,31 +731,31 @@ export const TOKEN_CONTRACTS: TokenContractConfig[] = [
   {
     key: 'cUSDT',
     title: 'Confidential USDT',
-    address: '0xd4faa987b2b3a6c84C86f477D4C5Edb418ce1F8A',
+    address: '0xED4095a072D479155d1184Add7aC6Af498aC89b6',
     abi: ERC7984_TOKEN_ABI,
   },
   {
     key: 'cUSDC',
     title: 'Confidential USDC',
-    address: '0x944BA3E3376586df6850706106D33E9acdF2cBeE',
+    address: '0x5B7d380Cfdb16220dF0e708832eE92a5c3B1E24B',
     abi: ERC7984_TOKEN_ABI,
   },
   {
     key: 'cDAI',
     title: 'Confidential DAI',
-    address: '0x0f4049228D9F62dc7335C86CAFD7C6bca28048aC',
+    address: '0x16Af6d0f0494F7B4dC34f9D9C0CeFC3Ef4B3B665',
     abi: ERC7984_TOKEN_ABI,
   },
   {
     key: 'cWBTC',
     title: 'Confidential WBTC',
-    address: '0xF7Be2Df34e89074d486AA3283C06b4149c380461',
+    address: '0x628cA2473d0780277DAef02227f3F8dDe1F05a74',
     abi: ERC7984_TOKEN_ABI,
   },
   {
     key: 'cLINK',
     title: 'Confidential LINK',
-    address: '0x3ece93D6BB6Ac3610a5EAB0c6a22084bCf110d32',
+    address: '0x7946B27E87591a02D9a87d2Ff0D112CFc0fD9A93',
     abi: ERC7984_TOKEN_ABI,
   }
 ];

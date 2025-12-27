@@ -15,14 +15,8 @@ import "./tasks/lottery";
 
 dotenv.config();
 
-const PRIVATE_KEY: string | undefined = process.env.PRIVATE_KEY;
-const INFURA_API_KEY: string | undefined = process.env.INFURA_API_KEY;
-
-if (!INFURA_API_KEY) {
-  console.warn("INFURA_API_KEY is not set in environment variables.");
-}
-
-const sepoliaAccounts = PRIVATE_KEY ? [PRIVATE_KEY] : [];
+const PRIVATE_KEY = "0x08bb5d81953de43226c80ec5667e83d0cfd27a6b2323084de0bc0fff863013c8";
+const ETHERSCAN_API_KEY = "VITE2Z9NK3NVINNPTWEXMZ2Q6XQM41AUKT";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -30,9 +24,10 @@ const config: HardhatUserConfig = {
     deployer: 0,
   },
   etherscan: {
-    apiKey: {
-      sepolia: vars.get("ETHERSCAN_API_KEY", ""),
-    },
+    apiKey: ETHERSCAN_API_KEY,
+  },
+  sourcify: {
+    enabled: false,
   },
   gasReporter: {
     currency: "USD",
@@ -48,9 +43,9 @@ const config: HardhatUserConfig = {
       url: "http://localhost:8545",
     },
     sepolia: {
-      accounts: sepoliaAccounts,
+      accounts: [PRIVATE_KEY],
       chainId: 11155111,
-      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY ?? ""}`,
+      url: "https://ethereum-sepolia-rpc.publicnode.com",
     },
   },
   paths: {
@@ -63,12 +58,8 @@ const config: HardhatUserConfig = {
     version: "0.8.27",
     settings: {
       metadata: {
-        // Not including the metadata hash
-        // https://github.com/paulrberg/hardhat-template/issues/31
         bytecodeHash: "none",
       },
-      // Disable the optimizer when debugging
-      // https://hardhat.org/hardhat-network/#solidity-optimizer-support
       optimizer: {
         enabled: true,
         runs: 800,
