@@ -15,6 +15,15 @@
   Win encrypted token rewards that remain completely private on-chain until you choose to reveal them.
 </p>
 
+<p align="center">
+  <a href="https://youtu.be/jmxVz7uP3Ak">
+    <img src="https://img.shields.io/badge/Demo-YouTube-FF0000?style=for-the-badge&logo=youtube" alt="Demo Video"/>
+  </a>
+  <a href="https://lucky-money-fhe.vercel.app">
+    <img src="https://img.shields.io/badge/Live-Demo-00D4AA?style=for-the-badge&logo=vercel" alt="Live Demo"/>
+  </a>
+</p>
+
 ---
 
 ## Overview
